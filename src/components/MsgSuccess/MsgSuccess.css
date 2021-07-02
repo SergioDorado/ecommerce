@@ -1,0 +1,16 @@
+.msj-success{
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  color: #10B981;
+  background: rgb(209, 250, 229);
+  border: rgb(209, 250, 229) solid 1px;
+  border-radius: 4px;
+  padding: 0px 10%;
+}
+
+a {
+  text-decoration: none;
+  color: #047857;
+  font-weight: 600;
+}
+
+a:hover {color: #036348}

@@ -1,0 +1,66 @@
+.product-container{
+  border: 1px solid rgb(234, 234, 234);
+  border-radius: 4px;
+  margin: 10px;
+  max-width:300px;
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  min-height: 364px;
+  background: #fff;
+  transition: box-shadow 1s ease;
+}
+
+.product-container:hover .product-description {
+  max-height: unset;
+  -webkit-line-clamp: unset;
+  z-index: 1;
+}
+
+.product-container:hover {
+  box-shadow: 0px 21px 52px 12px rgba(0,0,0,0.51);
+  -webkit-box-shadow: 0px 21px 52px 12px rgba(0,0,0,0.51);
+  -moz-box-shadow: 0px 21px 52px 12px rgba(0,0,0,0.51);
+}
+
+.product-container:hover .btn-compra-d-none{
+  display: block;
+}
+
+.product-container .img-container { 
+  padding: 50px 10px;
+  border-bottom: 1px solid rgb(234, 234, 234);
+  min-height: 256px;
+}
+
+.product-container .text-container { 
+  padding: 10px; 
+  text-align:left;
+}
+
+.product-img {
+  max-width:100%;
+  max-height: 200px;
+}
+
+.product-price {
+  font-size: 1.5rem;
+}
+
+.product-name { 
+  font-size: 0.8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
+.product-description {
+  font-size: .8rem;
+  color: rgb(162 162 162);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  max-height: 45px;
+  text-align:center;
+  transition: height 3s ease;
+}

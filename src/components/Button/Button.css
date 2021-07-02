@@ -1,0 +1,20 @@
+.btn {
+  background: rgba(0, 0, 0, 0);
+  outline: none;
+  color: #00cbd6;
+  padding: 15px;
+  border: 2px solid #00cbd6;
+  border-radius: 10px;
+  font-size: 16px;
+  max-width: 155px;
+  width: 100%;
+}
+
+.btn:hover {
+  -webkit-box-shadow: 0px 0px 27px 10px rgba(3,233,244,0.89); 
+  box-shadow: 0px 0px 27px 10px rgba(3,233,244,0.89);
+  cursor: pointer;
+  border-color: #03e9f4;
+  color: #03e9f4;
+  font-weight:bold;
+}
