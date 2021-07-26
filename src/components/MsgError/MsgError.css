@@ -1,0 +1,16 @@
+.msj-error{
+  font-family: Proxima Nova,-apple-system,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+  color: #b91010;
+  background: rgb(250, 209, 209);
+  border: rgb(250, 209, 209) solid 1px;
+  border-radius: 4px;
+  padding: 0px 10%;
+}
+
+a {
+  text-decoration: none;
+  color: #047857;
+  font-weight: 600;
+}
+
+a:hover {color: #036348}

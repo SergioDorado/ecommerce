@@ -14,7 +14,7 @@ export default function Registro(){
 
   return(
     <div className="registro-layout" >
-      <FormLog campos={campos} title="Registro" btnText="REGISTRAR" />
+      <FormLog campos={campos} title="Registro" btnText="REGISTRAR" register={true} />
     </div>
   )
 }

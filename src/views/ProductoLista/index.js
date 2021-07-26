@@ -23,6 +23,7 @@ export default function ProductoLista() {
       <div className="product-list">
         <ol>
           {products.data.map(product => {
+            console.log(product)
             return(
               <li key={product.id}>
                 <Producto producto={product} />
