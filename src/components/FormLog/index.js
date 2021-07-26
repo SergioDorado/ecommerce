@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import firebase from '../../services/firebase'
 import Spinner from '../spinner'
 import MsgError from '../MsgError'
+import MsgSuccess from '../MsgSuccess'
 import './FormLog.css'
 import Boton from '../Button'
 import Input from '../Input'
@@ -18,7 +19,7 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
   const [form, setForm] = useState(hookinit)
   const [loading, setLoading] = useState(false)
   const [showError, setShowError] = useState({show: false, msg: ''})
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [showSuccess, setShowSuccess] = useState({show: false, msg: ''})
 
   let history = useHistory()
 
@@ -29,7 +30,6 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
     if(register){
       firebase.auth.createUserWithEmailAndPassword(form.mail,form.pass)
       .then( (data)=>{
-        console.log("Auth",data)
         firebase.db.collection("usuarios")
         .add({
           nombre: form.name,
@@ -40,11 +40,18 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
         }).then((data) => {
           console.log("Register", data)
           setLoading(false)
+
+          setShowSuccess({ show: true, msg: 'Registro completado con exito' })
+          
+          setShowError({ show: false, msg: '' })
         })
       })
       .catch( (error)=>{
         setLoading(false)
-        console.log('Error firebase register',error)
+
+        setShowSuccess({ show: false, msg: '' })
+
+        setShowError({ show: true, msg: error.message })
       })
     }
     if(login){
@@ -55,12 +62,8 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
         history.push('/productos')
       })
       .catch( (error) =>{
-        console.log("login Fail",error)
         setLoading(false)
-        setShowError({
-          show: true,
-          msg: error.message
-        })
+        setShowError({ show: true, msg: error.message })
       })
     }
   }
@@ -80,6 +83,7 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
     <>
       <div className="form-box">
         {showError.show && <MsgError msg={showError.msg} />}
+        {showSuccess.show && <MsgSuccess msg={showSuccess.msg} />}
         {!loading &&
           <form onSubmit={handleSubmit}>
             <h1>{title}</h1>

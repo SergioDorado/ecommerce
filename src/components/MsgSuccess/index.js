@@ -1,11 +1,14 @@
 import './MsgSuccess.css'
 import {Link} from 'react-router-dom'
 
-const MsgSuccess = ({msg, btnTxt}) => {
+const MsgSuccess = ({msg, btnTxt= ''}) => {
   return(
     <div className="msj-success">
       <p>{msg}</p>
-      <p><Link to="/productos">{btnTxt}</Link></p>
+      {
+        {btnTxt} === '' ? null :
+        <p><Link to="/productos">{btnTxt}</Link></p>
+      }
     </div>
   )
 }
