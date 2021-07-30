@@ -37,6 +37,9 @@ export default function DetalleProducto(props) {
             <div className="data-element">
               <p>Stock disponible: <span>{producto.data.stock}</span></p>
             </div>
+            <div className="data-element">
+              <p className="sku">SKU: {props.match.params.id}</p>
+            </div>
             <div className="bordet-t descripcion data-element">
               <p>Descripción</p>
               <p>{producto.data.description}</p>

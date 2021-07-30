@@ -9,6 +9,7 @@ export default function Produt(props){
     <div className="product-container">
       <div className="img-container">
         <img className="product-img" src={photo_url} alt={name} />
+        <p className="product-sku">SKU: {id}</p>
       </div>
       <div className="text-container">
         <p className="product-price">$ {price}</p>

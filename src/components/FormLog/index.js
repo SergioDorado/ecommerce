@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { useHistory } from 'react-router-dom'
 import firebase from '../../services/firebase'
 import Spinner from '../spinner'
@@ -7,6 +7,7 @@ import MsgSuccess from '../MsgSuccess'
 import './FormLog.css'
 import Boton from '../Button'
 import Input from '../Input'
+import UserContext from '../../context/userContext'
 
 
 export default function FormLog({campos, title = null,btnText="Submit",login=false, register=false}) {
@@ -23,10 +24,13 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
 
   let history = useHistory()
 
+  const context = useContext(UserContext)
+
 
   const handleSubmit = (e)=>{
     e.preventDefault()
     setLoading(true)
+
     if(register){
       firebase.auth.createUserWithEmailAndPassword(form.mail,form.pass)
       .then( (data)=>{
@@ -54,11 +58,12 @@ export default function FormLog({campos, title = null,btnText="Submit",login=fal
         setShowError({ show: true, msg: error.message })
       })
     }
+
     if(login){
       firebase.auth.signInWithEmailAndPassword(form.mail,form.pass)
       .then( (data) => {
-        console.log("login Succes", data)
         setLoading(false)
+        context.loginUser()
         history.push('/productos')
       })
       .catch( (error) =>{
